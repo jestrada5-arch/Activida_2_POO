@@ -3,32 +3,40 @@
 
 using namespace std;
 
-int main() {
-    string cui, nom, ape, dir, fn, cod, nit, prof;
-    int tel;
-    float sal;
-    bool gen;
-
-    cout << "--- Registro de Docente ---" << endl;
-    cout << "Ingrese Codigo Docente: "; cin >> cod;
-    cout << "Ingrese NIT: "; cin >> nit;
-    cin.ignore();
-    cout << "Ingrese Nombres: "; getline(cin, nom);
-    cout << "Ingrese Apellidos: "; getline(cin, ape);
-    cout << "Ingrese Salario: "; cin >> sal;
-    cin.ignore();
-    cout << "Ingrese Profesion: "; getline(cin, prof);
+int main() { 
+    string codigo, nit, nombres, apellidos, profesion;
+    float salario;
     
-    // Instancia usando el estilo que mostraste en tu main.cpp (Constructor vacío + setters)
-    Docente d = Docente();
-    d.setCodigo(cod);
-    d.setNit(nit);
-    d.setNombres(nom);
-    d.setApellidos(ape);
-    d.setSalario(sal);
-    d.setProfesion(prof);
+    cout << "Ingrese Codigo: ";
+    cin >> codigo;
+    
+    cout << "Ingrese NIT: ";
+    cin >> nit;
+    
+    cin.ignore(); 
+    
+    cout << "Ingrese Nombres: ";
+    getline(cin, nombres); 
+    
+    cout << "Ingrese Apellidos: ";
+    getline(cin, apellidos);
+    
+    cout << "Ingrese Profesion: ";
+    getline(cin, profesion);
+    
+    cout << "Ingrese Salario: ";
+    cin >> salario;
+    
+    // Instancia y asignacion
+    Docente obj = Docente();
+    obj.setCodigo(codigo);
+    obj.setNit(nit);
+    obj.setNombres(nombres);
+    obj.setApellidos(apellidos);
+    obj.setProfesion(profesion);
+    obj.setSalario(salario);
+    
+    obj.leer();
 
-    d.leer();
-
-    return 0;
-/;
+    return 0; 
+} 
