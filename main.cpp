@@ -1,42 +1,46 @@
 #include "Docente.cpp"
+#include "Estudiante.cpp"
 #include <iostream>
 
 using namespace std;
 
-int main() { 
-    string codigo, nit, nombres, apellidos, profesion;
-    float salario;
-    
-    cout << "Ingrese Codigo: ";
-    cin >> codigo;
-    
-    cout << "Ingrese NIT: ";
-    cin >> nit;
-    
-    cin.ignore(); 
-    
-    cout << "Ingrese Nombres: ";
-    getline(cin, nombres); 
-    
-    cout << "Ingrese Apellidos: ";
-    getline(cin, apellidos);
-    
-    cout << "Ingrese Profesion: ";
-    getline(cin, profesion);
-    
-    cout << "Ingrese Salario: ";
-    cin >> salario;
-    
-    // Instancia y asignacion
-    Docente obj = Docente();
-    obj.setCodigo(codigo);
-    obj.setNit(nit);
-    obj.setNombres(nombres);
-    obj.setApellidos(apellidos);
-    obj.setProfesion(profesion);
-    obj.setSalario(salario);
-    
-    obj.leer();
+int main() {
+    int opcion, gen_int, tel;
+    string nom, ape, dir, cui, carnet;
+    bool genero;
 
-    return 0; 
-} 
+    cout << "Elija el tipo de registro (1. Docente / 2. Estudiante): ";
+    cin >> opcion;
+    cin.ignore(); 
+
+ 
+    cout << "Ingrese CUI: "; getline(cin, cui);
+    cout << "Ingrese Nombres: "; getline(cin, nom);
+    cout << "Ingrese Apellidos: "; getline(cin, ape);
+    cout << "Ingrese Direccion: "; getline(cin, dir);
+    
+    cout << "Ingrese Telefono: "; cin >> tel;
+    cout << "Ingrese Genero (1:Masc / 0:Fem): "; cin >> gen_int;
+    genero = (gen_int == 1);
+    cin.ignore(); 
+
+    if (opcion == 1) {
+       
+    } 
+    else if (opcion == 2) {
+        cout << "Ingrese Carnet: "; cin >> carnet;
+        
+        Estudiante e = Estudiante();
+        e.setCarnet(carnet);
+        e.setCui(cui);
+        e.setNombres(nom);
+        e.setApellidos(ape);
+        e.setDireccion(dir); 
+        e.setTelefono(tel);
+        e.setGenero(genero);
+        
+        e.leer();
+    }
+
+    return 0;
+}

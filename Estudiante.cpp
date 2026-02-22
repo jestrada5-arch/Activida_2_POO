@@ -1,22 +1,33 @@
+#include "Persona.cpp"
 #include <iostream>
 using namespace std;
 
-class Persona {
-    protected: 
-        string cui, nombres, apellidos, direccion, fecha_nacimiento;
-        int telefono;
-        bool genero;
+class Estudiante : public Persona {
+    private: 
+        string carnet;
 
-    protected:
-        Persona() {}
-        Persona(string c, string nom, string ape, string dir, int tel, string fn, bool gen) {
-            cui = c; nombres = nom; apellidos = ape; direccion = dir;
-            telefono = tel; fecha_nacimiento = fn; genero = gen;
+    public:
+        Estudiante() {}
+
+        // Setters
+        void setCarnet(string car) { carnet = car; }
+        void setCui(string c) { cui = c; }
+        void setNombres(string nom) { nombres = nom; }
+        void setApellidos(string ape) { apellidos = ape; }
+        void setDireccion(string dir) { direccion = dir; } // Agregado
+        void setTelefono(int tel) { telefono = tel; }
+        void setGenero(bool g) { genero = g; }
+
+        // Getters
+        string getCarnet() { return carnet; }
+        string getNombres() { return nombres; }
+        string getDireccion() { return direccion; } // Agregado
+
+        void leer() {
+            cout << "\n________________" << endl;
+            cout << "Carnet: " << carnet << endl;
+            cout << "Estudiante: " << nombres << " " << apellidos << endl;
+            cout << "Direccion: " << direccion << endl;
+            cout << "CUI: " << cui << " | Genero: " << (genero ? "Masculino" : "Femenino") << endl;
         }
-
-        // Definición de métodos para evitar errores de enlace
-        void crear() {}
-        void leer() {}
-        void actualizar() {}
-        void borrar() {}
 };
